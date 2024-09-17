@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaLearn - Your Language Learning Companion</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <div class="logo">
+          <h1>LinguaLearn</h1>
+        </div>
+        <nav>
+          <div class="language-selectors">
+            <select id="interface-language-select" aria-label="Native Language">
+              <option value="English">English</option>
+              <option value="French">Français</option>
+              <option value="Spanish">Español</option>
+            </select>
+            <select id="language-select" aria-label="Language to Learn">
+              <option value="English">English</option>
+              <option value="Spanish">Spanish</option>
+              <option value="French">French</option>
+              <option value="German">German</option>
+              <option value="Italian">Italian</option>
+            </select>
+          </div>
+          <button
+            id="dyslexic-mode-toggle"
+            class="icon-button"
+            aria-label="Toggle Dyslexic Mode"
+          >
+            <i class="fas fa-eye"></i>
+          </button>
+        </nav>
+      </header>
+      <main>
+        <div class="dashboard">
+          <section id="sentence-section" class="card resizable draggable">
+            <h2 data-i18n="practiceTitle">Practice Sentence</h2>
+            <div id="sentence-container">
+              <p id="sentence" data-i18n="clickToGenerate">
+                Click the button to generate a sentence.
+              </p>
+            </div>
+            <div class="button-group">
+              <button
+                id="generate-sentence"
+                class="icon-button"
+                aria-label="Generate Sentence"
+              >
+                <i class="fas fa-sync-alt"></i>
+              </button>
+              <button
+                id="listen-sentence"
+                class="icon-button"
+                aria-label="Listen to Sentence"
+              >
+                <i class="fas fa-volume-up"></i>
+              </button>
+              <button
+                id="translate-sentence"
+                class="icon-button"
+                aria-label="Translate Sentence"
+              >
+                <i class="fas fa-language"></i>
+              </button>
+            </div>
+            <p id="translation" class="translation-text"></p>
+          </section>
+          <section id="exercise-section" class="card resizable draggable">
+            <h2 data-i18n="exerciseTitle">Language Exercises</h2>
+            <div class="exercise-controls">
+              <select id="exercise-type" aria-label="Exercise Type">
+                <option value="multiple-choice">Multiple Choice</option>
+                <option value="fill-in-the-blank">Fill in the Blank</option>
+                <option value="translation">Translation</option>
+              </select>
+              <button
+                id="generate-exercise"
+                class="icon-button"
+                aria-label="Generate Exercise"
+              >
+                <i class="fas fa-dumbbell"></i>
+              </button>
+            </div>
+            <div id="exercise-container"></div>
+            <textarea
+              id="exercise-input"
+              data-i18n-placeholder="writeAnswer"
+              placeholder="Write your answer here..."
+            ></textarea>
+            <button
+              id="correct-exercise"
+              class="icon-button"
+              aria-label="Check Answer"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+            <div id="correction-result"></div>
+          </section>
+        </div>
+        <div class="sidebar">
+          <section id="vocabulary-section" class="card resizable draggable">
+            <h2 data-i18n="vocabularyTitle">Vocabulary Builder</h2>
+            <div id="vocabulary-container">
+              <table id="vocabulary-table">
+                <thead>
+                  <tr>
+                    <th data-i18n="word">Word</th>
+                    <th data-i18n="translation">Translation</th>
+                    <th data-i18n="actions">Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="vocabulary-controls">
+              <button
+                id="add-vocabulary"
+                class="icon-button"
+                aria-label="Add Word"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+              <button
+                id="toggle-translation"
+                class="icon-button"
+                aria-label="Toggle Translation"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </section>
+          <section id="chatbot-section" class="card resizable draggable">
+            <h2 data-i18n="conversationTitle">Conversation Practice</h2>
+            <div id="chat-container"></div>
+            <div class="chat-input-container">
+              <input
+                type="text"
+                id="chat-input"
+                placeholder="Type your message..."
+                aria-label="Chat message"
+              />
+              <button
+                id="send-message"
+                class="icon-button"
+                aria-label="Send Message"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+      <aside id="control-panel" class="control-panel">
+        <h3>Control Panel</h3>
+        <div id="visibility-controls"></div>
+        <div id="fullscreen-controls"></div>
+      </aside>
+      <footer>
+        <p>&copy; 2024 LinguaLearn. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

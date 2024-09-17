@@ -1,0 +1,402 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --border-color: #ddd;
+  --card-background: #ffffff;
+  --hover-color: #2980b9;
+  --success-color: #27ae60;
+  --error-color: #e74c3c;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-selectors {
+  display: flex;
+  gap: 0.5rem;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  gap: 2rem;
+}
+
+.dashboard,
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+button,
+textarea,
+input[type="text"] {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-background);
+  transition: all 0.3s ease;
+}
+
+button:focus,
+textarea:focus,
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+.icon-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+
+#vocabulary-container {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#vocabulary-table {
+  width: 100%;
+  border-collapse: collapse;
+  flex: 1;
+}
+
+#vocabulary-table th,
+#vocabulary-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#vocabulary-table th {
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+  background-color: var(--background-color);
+  z-index: 1;
+}
+
+.vocabulary-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.translation-cell {
+  font-style: italic;
+  color: #666;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+#sentence-container,
+#exercise-container,
+#vocabulary-container,
+#chat-container {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-input-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#chat-input {
+  flex-grow: 1;
+  resize: none;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.user-message,
+.bot-message {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: var(--border-color);
+}
+
+.message-timestamp {
+  font-size: 0.8rem;
+  color: #777;
+  align-self: flex-end;
+}
+
+.button-group,
+.exercise-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  color: #777;
+}
+
+/* Dyslexic mode styles */
+body.dyslexic-mode {
+  font-family: "OpenDyslexic", "Roboto", sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
+
+body.dyslexic-mode p,
+body.dyslexic-mode div,
+body.dyslexic-mode span {
+  font-size: 1.1em;
+}
+
+body.dyslexic-mode .card {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.resizable {
+  min-width: 200px;
+  min-height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.draggable {
+  position: relative;
+  height: 100%;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: move;
+}
+
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: se-resize;
+}
+
+.control-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: var(--card-background);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 10001;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure control panel and toggle are visible in fullscreen */
+*:fullscreen .control-panel,
+*:fullscreen .control-panel-toggle {
+  display: block !important;
+}
+
+.control-panel.open {
+  transform: translateX(0);
+}
+
+.control-panel h3 {
+  margin-bottom: 1rem;
+}
+
+.control-panel button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.control-panel-toggle {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 10002;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+
+  .button-group,
+  .exercise-controls {
+    flex-wrap: wrap;
+  }
+
+  .control-panel {
+    width: 100%;
+    height: auto;
+    top: auto;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+
+  .control-panel.open {
+    transform: translateY(0);
+  }
+
+  .exit-fullscreen-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .exit-fullscreen-btn:hover {
+    background-color: var(--hover-color);
+  }
+}
